@@ -189,6 +189,7 @@ def get_config(
         dataset_name=metadata.dataset,
         instance_id=instance['instance_id'],
     )
+    sandbox_config.api_key = os.environ["OPENHANDS_API_KEY"]
 
     config = AppConfig(
         default_agent=metadata.agent_class,
