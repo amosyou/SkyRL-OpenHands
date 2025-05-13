@@ -29,17 +29,17 @@ poetry install
 ### 2. Launch the server
 
 ```bash
-ALLHANDS_API_KEY=<your_api_key> python -m openhands.runtime.remote_runtime_server.main --host ${HOST} --port ${PORT}
+OPENHANDS_API_KEY=<your_api_key> python -m openhands.runtime.remote_runtime_server.main --host ${HOST} --port ${PORT}
 ```
 
-Make sure to set `HOST` to be the _public_ IP for your machine! `ALLHANDS_API_KEY` can be any key of your choice - this is used for authentication during evaluation. 
+Make sure to set `HOST` to be the _public_ IP for your machine! `OPENHANDS_API_KEY` can be any key of your choice - this is used for authentication during evaluation. 
 
 ### 3. Run evaluations
 
 First, make sure to configure your LLM in `config.toml` file, following instructions from [OpenHands](https://github.com/all-hands-ai/openhands). Then, run the following command:
 
 ```bash
-ALLHANDS_API_KEY=<your_api_key> \
+OPENHANDS_API_KEY=<your_api_key> \
 RUNTIME=remote \
 SANDBOX_REMOTE_RUNTIME_API_URL="http://${HOST}:${PORT}" \
 ./evaluation/benchmarks/swe_bench/scripts/run_infer.sh llm.gpt_4o_mini HEAD CodeActAgent 1 10 1 "princeton-nlp/SWE-bench_Lite" test
@@ -55,7 +55,7 @@ For usage with training, we highly recommend running image caching to speed up s
 We provide a simple script `run_builds.sh`
 
 ```bash
-ALLHANDS_API_KEY=<your_api_key> \
+OPENHANDS_API_KEY=<your_api_key> \
 RUNTIME=remote \
 SANDBOX_REMOTE_RUNTIME_API_URL="http://${HOST}:${PORT}" \
 python ./evaluation/benchmarks/swe_bench/scripts/run_builds.sh llm.gpt_4o_mini HEAD CodeActAgent 5000 1 64 "princeton-nlp/SWE-bench_Lite" test
@@ -99,5 +99,5 @@ cp <path_to_our_repo>/openhands/runtime/impl/remote/remote_runtime.py <path_to_o
 
 ```bash
 RUNTIME=remote
-ALLHANDS_API_KEY=<your_api_key>
+OPENHANDS_API_KEY=<your_api_key>
 ```
