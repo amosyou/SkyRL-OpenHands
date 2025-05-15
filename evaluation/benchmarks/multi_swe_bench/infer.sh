@@ -3,14 +3,23 @@
 
 BASE_SCRIPT="./evaluation/benchmarks/multi_swe_bench/scripts/run_infer.sh"
 
-MODELS=("aaa" "bbb" "ccc" "ddd" "fff")
+# MODELS=("aaa" "bbb" "ccc" "ddd" "fff")
+# GIT_VERSION="HEAD"
+# AGENT_NAME="CodeActAgent"
+# EVAL_LIMIT="500"
+# MAX_ITER="50"
+# NUM_WORKERS="1"
+# LANGUAGE="XXX"
+# DATASET="XXX"
+
+MODELS=("gpt_4o_mini")
 GIT_VERSION="HEAD"
 AGENT_NAME="CodeActAgent"
-EVAL_LIMIT="500"
-MAX_ITER="50"
+EVAL_LIMIT="1"
+MAX_ITER="10"
 NUM_WORKERS="1"
-LANGUAGE="XXX"
-DATASET="XXX"
+LANGUAGE="c"
+DATASET="Multi-SWE-bench/c/facebook__zstd_dataset_mod.jsonl"
 
 
 for MODEL in "${MODELS[@]}"; do

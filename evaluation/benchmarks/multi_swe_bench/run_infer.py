@@ -345,6 +345,7 @@ def get_config(
         dataset_name=metadata.dataset,
         instance_id=instance['instance_id'],
     )
+    sandbox_config.api_key = os.environ["OPENHANDS_API_KEY"]
 
     config = AppConfig(
         default_agent=metadata.agent_class,
@@ -792,6 +793,7 @@ if __name__ == '__main__':
         help='split to evaluate on',
     )
     args, _ = parser.parse_known_args()
+    print(args)
 
     # NOTE: It is preferable to load datasets from huggingface datasets and perform post-processing
     # so we don't need to manage file uploading to OpenHands's repo
